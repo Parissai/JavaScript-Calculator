@@ -1,1 +1,1 @@
-"#JvaScript-Calculator" 
+"#JavaScript-Calculator" 
