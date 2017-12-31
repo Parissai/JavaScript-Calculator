@@ -1,0 +1,15 @@
+
+button {
+  font-size: 200%;
+  width: 40px;
+}
+
+input {
+  font-size: 14px;
+  height: 40px;
+  text-align: right;
+}
+
+table {
+    border: 1px solid black;
+}
