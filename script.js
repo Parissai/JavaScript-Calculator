@@ -20,6 +20,13 @@ function addToDisplay() {       //ADD S.TH FOR 0-8   INSTEAD OF -8  //////IS THI
 }
 
 function showResult() {
+
+    const openParenthese = cached.split("(").length - 1;
+    const closeParenthese = cached.split(")").length - 1;
+
+    //check if the number of openParenthese and closeParenthese are the same, if not equal them
+    cached = (openParenthese != closeParenthese ? cached + ")".repeat(openParenthese - closeParenthese) : cached);
+
     result.innerHTML = eval(cached);
     display.innerHTML = result.innerHTML;
     cached = result.innerHTML;
