@@ -7,8 +7,19 @@ const displayClearButton = document.getElementById('displayClearButton');
 const arrow = document.getElementById('arrow');
 let cached = "";
 
+function addAutoMultiply() {
+
+    //if before log and radical and pi is a digit automatically add *
+    const filterInt = function (value) {
+        if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value)) return 'number';
+    };
+
+    cached = (filterInt(cached.slice(-1)) == 'number' ? cached + '*' : cached);
+}
 
 function addToDisplay() {       //ADD S.TH FOR 0-8   INSTEAD OF -8  //////IS THIS NEEDED?!?!?
+
+    if (this.classList.contains('math')) addAutoMultiply();
 
     //checks if display and result both have the value of zero remove the 0 in display and add the first digit
     display.innerHTML = ((((this.value == "*") || (this.value == "/")) && (result.innerHTML === "0") && (display.innerHTML === "0")) ? "error" :
@@ -43,8 +54,10 @@ function allClear() {
     cached = "";
 };
 
-function dropLast() {
-    //TODO check if it is the last digit remained
+function dropLastChar() {//TODO check if the last char is Math.something and drop that all together eg. "Math.PI" cached "Math.P" cached "Math.P09-2"
+    //TODO check if it is the last digit remained is 0 
+    //TODO  % also needs checking   /100   back gives   /10 
+
     cached = cached.slice(0, -1);
     display.innerHTML = (display.innerHTML).slice(0, -1);
 }
@@ -53,4 +66,4 @@ buttons.forEach(button => button.addEventListener('click', addToDisplay));
 equalsButton.addEventListener('click', showResult);
 displayClearButton.addEventListener('click', clearDisplay);
 allClearButton.addEventListener('click', allClear);
-arrow.addEventListener('click', dropLast);
+arrow.addEventListener('click', dropLastChar);
