@@ -4,6 +4,8 @@ const buttons = document.querySelectorAll('.button');
 const equalsButton = document.getElementById('equalsButton');
 const allClearButton = document.getElementById('allClearButton');
 const displayClearButton = document.getElementById('displayClearButton');
+const arrow = document.getElementById('arrow');
+let cached = "";
 
 
 function addToDisplay() {       //ADD S.TH FOR 0-8   INSTEAD OF -8  //////IS THIS NEEDED?!?!?
@@ -34,7 +36,14 @@ function allClear() {
     cached = "";
 };
 
+function dropLast() {
+    //TODO check if it is the last digit remained
+    cached = cached.slice(0, -1);
+    display.innerHTML = (display.innerHTML).slice(0, -1);
+}
+
 buttons.forEach(button => button.addEventListener('click', addToDisplay));
 equalsButton.addEventListener('click', showResult);
 displayClearButton.addEventListener('click', clearDisplay);
 allClearButton.addEventListener('click', allClear);
+arrow.addEventListener('click', dropLast);
