@@ -1,15 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+body, html {
+  height: 100%;
+  margin: 0;
+  cursor: url(./chalk.png), auto;   
+  /*border: 3px solid #840000e6;*/
+}
+
+.bg {
+  background: url(./blackboard2.jpg) no-repeat;
+  height: 100%; 
+  background-position: center;
+  background-size: cover;
+}
+
 
 button {
-  font-size: 200%;
-  width: 40px;
+  font-size: 1.5rem;
+  width: 50px;
+  cursor: url(chalk.png), pointer;
+  border-radius: 2px;
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Cabin Sketch', cursive;
 }
 
-input {
-  font-size: 14px;
-  height: 40px;
-  text-align: right;
+
+table {  
+  background: transparent;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(10%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateX(-50%) translateY(10%); /* IE 9 */
+  transform: translateX(-50%) translateY(10%); /* IE 10, Fx 16+, Op 12.1+ */
+
+}
+#input {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 70%;
+  -webkit-transform: translateX(-50%) translateY(-50%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateX(-50%) translateY(-50%); /* IE 9 */
+  transform: translateX(-50%) translateY(-50%); /* IE 10, Fx 16+, Op 12.1+ */
+  font-family: 'Cabin Sketch', cursive;
 }
 
-table {
-    border: 1px solid black;
+#display, #result {  
+  color: #fff;
+  padding-left: 5px;
+  
+}
+
+#display {
+  height: auto;
+  font-size: 2rem;
+}
+
+#result {
+  height: auto;
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+#allClearButton, #displayClearButton {
+  color: rgb(255, 129, 129);
 }
