@@ -26,7 +26,7 @@ function addToDisplay() {
     //if before log and radical and pi is a digit automatically add *
     if (this.classList.contains('math') &&
         !((cached[cached.length - 1] === '/') || (cached[cached.length - 1] === '+') || (cached[cached.length - 1] === '-') || (cached[cached.length - 1] === '*') || !cached.length)) {
-            cached.push(`${'*' + this.value}`);}
+        cached.push(`${'*' + this.value}`);}
     //if after pi is a digit automatically add *
     else if ((filterInt(this.value) == 'number') && ((cached[cached.length - 1] == 'Math.PI') || (cached[cached.length - 1] == '*Math.PI'))) {
         cached.push(`${'*' + this.value}`);}
@@ -44,17 +44,21 @@ function showResult() {
 
     //check if the number of openParenthese and closeParenthese are the same, if not equal them
     cachedStr = (openParenthese != closeParenthese ? cachedStr + ")".repeat(openParenthese - closeParenthese) : cachedStr);
-
+    
     let result = eval(cachedStr);
-    //cached.length = 0;
     resultDisplay.innerHTML = result;
     display.innerHTML = result;
-    cached = result.toString().split('');
+    cached.length = 0;
+    cached = display.innerHTML.split('');
+
+    //check if the result is 0 remove it from cached
+    if(cached.length === 1 && cached[0] === '0') cached.length = 0;
 }
 
 function clearDisplay() {
     display.innerHTML = 0;
-    cached = resultDisplay.innerHTML;
+    cached.length = 0;
+    cached[0] = resultDisplay.innerHTML;
 };
 
 function allClear() {
